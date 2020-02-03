@@ -1,5 +1,5 @@
 # yozma.tech (test task) Infrastructure
-There is main repository for running test task for 'yozma.tecg'.
+There is main repository for running test task for 'yozma.tech'.
 From here you can run all micro-services.
 
 ## Task
