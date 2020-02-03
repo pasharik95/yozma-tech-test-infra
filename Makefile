@@ -1,0 +1,2 @@
+clone:
+	bin/clone-repositories
