@@ -9,5 +9,5 @@ services=(
 for service in ${services[*]}
 do
 	echo "$service cloning..."
-	git clone git://github.com/pasharik95/yozma-tech-test-${service}.git repositories/${service}
+	git clone git@github.com:pasharik95/yozma-tech-test-${service}.git repositories/${service}
 done
