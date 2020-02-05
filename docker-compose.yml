@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  configuration:
+    build:
+      context: ./docker/configuration
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:5.6
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    ports:
+      - 4114:3306
+    logging:
+      driver: none
+    restart: on-failure
+  auth:
+    build:
+      context: ./repositories/auth
+    depends_on:
+      - mysql
+      - configuration
+    environment:
+      DB_URL: "mysql://root:@mysql/Users"
+    restart: on-failure

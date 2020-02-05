@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+host="mysql"
+port="3306"
+
+mysql -h${host} -P${port} -uroot -e "CREATE DATABASE IF NOT EXISTS Users"
+
+echo "created databases!!!"
