@@ -16,7 +16,7 @@ services:
     logging:
       driver: none
     restart: on-failure
-  auth:
+  auth1:
     build:
       context: ./repositories/auth
     depends_on:
@@ -25,3 +25,30 @@ services:
     environment:
       DB_URL: "mysql://root:@mysql/Users"
     restart: on-failure
+  auth2:
+    build:
+      context: ./repositories/auth
+    depends_on:
+      - mysql
+      - configuration
+    environment:
+      DB_URL: "mysql://root:@mysql/Users"
+    restart: on-failure
+  auth3:
+    build:
+      context: ./repositories/auth
+    depends_on:
+      - mysql
+      - configuration
+    environment:
+      DB_URL: "mysql://root:@mysql/Users"
+    restart: on-failure
+  api-gateway:
+    build:
+      context: ./repositories/api-gateway
+    depends_on:
+      - auth1
+      - auth2
+      - auth3
+    ports:
+      - '3000:8080'

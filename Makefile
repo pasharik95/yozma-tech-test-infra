@@ -12,3 +12,7 @@ stop:
 
 remove:
 	docker-compose down --remove-orphans --volumes
+
+restart:
+	make stop
+	make run
